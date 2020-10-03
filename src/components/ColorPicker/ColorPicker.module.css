@@ -1,0 +1,4 @@
+#colorPicker_container {
+  display: flex;
+  max-width: 200px;
+}

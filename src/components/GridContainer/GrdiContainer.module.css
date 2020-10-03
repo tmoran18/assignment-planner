@@ -1,0 +1,10 @@
+#grid_container {
+	border: 1px solid red;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	max-width: 1000px;
+}
+
+.gridItem {
+	border: 1px solid red;
+}

@@ -14,6 +14,7 @@ function App() {
 		unitDetails,
 		setUnitDetails,
 		showUnitPlanner,
+		formCounter,
 		setFormCounter,
 	} = useContext(AppContext);
 
@@ -36,8 +37,15 @@ function App() {
 	if (numberOfUnits) {
 		return (
 			<div>
-				<section>
-					<NumberOfUnitsInput label='Number of Units' name='numOfUnits' />
+				<section
+					style={{
+						maxWidth: '500px',
+						margin: '100px auto',
+					}}>
+					<NumberOfUnitsInput
+						label='Choose Your Number of Units'
+						name='numOfUnits'
+					/>
 					<button onClick={saveNumOfUnits}>Save</button>
 				</section>
 			</div>

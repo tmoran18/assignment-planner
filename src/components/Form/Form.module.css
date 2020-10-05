@@ -1,10 +1,13 @@
 .form {
 	padding: 20px;
 	margin: 20px;
-	max-width: 800px;
+	max-width: 380px;
 	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	max-width: 850px;
+	flex-direction: column;
 	margin: auto;
+}
+
+.form h2 {
+	text-align: center;
+	color: #5e5e5e;
 }

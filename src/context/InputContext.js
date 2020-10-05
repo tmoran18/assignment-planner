@@ -6,6 +6,7 @@ export const InputContextProvider = (props) => {
 	const [numberOfUnitsInput, setNumberOfUnitsInput] = useState(0);
 	const [unitNameInput, setUnitNameInput] = useState('');
 	const [unitStartDateInput, setUnitStartDateInput] = useState('');
+	const [numberOfWeeksInput, setNumberOfWeeksInput] = useState(12);
 	const [selectColorInput, setSelectColorInput] = useState('');
 
 	return (
@@ -19,6 +20,8 @@ export const InputContextProvider = (props) => {
 				setUnitStartDateInput,
 				selectColorInput,
 				setSelectColorInput,
+				numberOfWeeksInput,
+				setNumberOfWeeksInput,
 			}}>
 			{props.children}
 		</InputContext.Provider>

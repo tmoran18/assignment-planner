@@ -4,7 +4,8 @@ export const PlannerContext = createContext();
 
 export const PlannerContextProvider = (props) => {
 	const [plannerUnitNames, setPlannerUnitNames] = useState([]);
-	const [plannerUnitStartDates, setPlannerUnitStartDates] = useState([]);
+	const [plannerUnitStartDates, setPlannerUnitStartDates] = useState('');
+	const [plannerUnitWeeks, setPlannerUnitWeeks] = useState([]);
 	const [plannerUnitColors, setPlannerUnitColors] = useState([]);
 	return (
 		<PlannerContext.Provider
@@ -15,6 +16,8 @@ export const PlannerContextProvider = (props) => {
 				setPlannerUnitStartDates,
 				plannerUnitColors,
 				setPlannerUnitColors,
+				plannerUnitWeeks,
+				setPlannerUnitWeeks,
 			}}>
 			{props.children}
 		</PlannerContext.Provider>

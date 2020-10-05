@@ -32,7 +32,7 @@ function App() {
 		}
 	};
 
-	// If number of units true - show Number of Units Input
+	// Show Number of Units Input
 	if (numberOfUnits) {
 		return (
 			<div>
@@ -43,6 +43,7 @@ function App() {
 			</div>
 		);
 	}
+	// Show Forms to fill out Unit details
 	if (unitDetails) {
 		return (
 			<div>
@@ -50,16 +51,10 @@ function App() {
 			</div>
 		);
 	}
+	// Show Unit Planner
 	if (showUnitPlanner) {
 		return <div>PLanners</div>;
 	}
 }
 
 export default App;
-
-// TODO's
-// Creating a grid with indexed IDS based off state
-
-// Components:
-// Grid Container is the parent
-// will create grid items by mapping state

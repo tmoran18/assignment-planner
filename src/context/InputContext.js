@@ -1,6 +1,5 @@
 import React, { useState, createContext } from 'react';
 
-// create a context
 export const InputContext = createContext();
 
 export const InputContextProvider = (props) => {

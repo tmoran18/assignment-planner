@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import '../../global.css';
 import { InputContext } from '../../context/InputContext';
+import '../../global.css';
 
 const NumberOfUnitsInput = ({ label, placeHolder, name }) => {
 	const { numberOfUnitsInput, setNumberOfUnitsInput } = useContext(

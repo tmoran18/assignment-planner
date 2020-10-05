@@ -1,14 +1,22 @@
-import React from "react";
-import "../../global.css";
-import styles from "./DateInput.module.css";
+import React, { useContext } from 'react';
+import { InputContext } from '../../context/InputContext';
+import '../../global.css';
 
 const DateInput = ({ label, name }) => {
-  return (
-    <div className="inputContainer">
-      <label htmlFor="">{label}</label>
-      <input type="date" name={name} />
-    </div>
-  );
+	const { unitStartDateInput, setUnitStartDateInput } = useContext(
+		InputContext,
+	);
+	return (
+		<div className='inputContainer'>
+			<label htmlFor=''>{label}</label>
+			<input
+				type='date'
+				name={name}
+				value={unitStartDateInput}
+				onChange={(e) => setUnitStartDateInput(e.target.value)}
+			/>
+		</div>
+	);
 };
 
 export default DateInput;

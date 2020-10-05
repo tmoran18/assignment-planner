@@ -1,35 +1,29 @@
-input {
-  border-radius: 10px;
-  border: 1.5px solid #e1e1e9;
-  padding: 12px 15px;
-  min-width: 300px;
-  max-width: 350px;
-  outline: none;
-  color: #8f969e;
-  margin: 10px 0px;
+input[type='text'],
+input[type='number'],
+input[type='date'] {
+	border-radius: 10px;
+	border: 1.5px solid #e1e1e9;
+	padding: 12px 15px;
+	min-width: 300px;
+	max-width: 350px;
+	outline: none;
+	color: #8f969e;
+	margin: 10px 0px;
 }
 
 input:focus {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.07), 0 3px 6px rgba(0, 0, 0, 0.07);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.07), 0 3px 6px rgba(0, 0, 0, 0.07);
 }
 
 .inputContainer {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
+	display: flex;
+	flex-direction: column;
+	max-width: 500px;
 }
 
-input[type="number"]::-webkit-inner-spin-button {
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  padding: 0 3px;
-}
-
-#form_container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  max-width: 850px;
-  margin: auto;
+input[type='number']::-webkit-inner-spin-button {
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	padding: 0 3px;
 }

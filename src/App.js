@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AppContext } from './context/AppContext';
 import { InputContext } from './context/InputContext';
 import NumberOfUnitsInput from './components/NumberOfUnitsInput/NumberOfUnitsInput';
+import GridContainer from './components/GridContainer/GridContainer';
 
 import Form from './components/Form/Form';
 import './global.css';
@@ -14,7 +15,6 @@ function App() {
 		unitDetails,
 		setUnitDetails,
 		showUnitPlanner,
-		formCounter,
 		setFormCounter,
 	} = useContext(AppContext);
 
@@ -61,7 +61,7 @@ function App() {
 	}
 	// Show Unit Planner
 	if (showUnitPlanner) {
-		return <div>PLanners</div>;
+		return <GridContainer />;
 	}
 }
 

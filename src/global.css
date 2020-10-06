@@ -42,3 +42,11 @@ button {
 button:hover {
 	transform: scale(1.05);
 }
+
+.blue_bg {
+	background: #50c4ff;
+}
+
+.red_bg {
+	background: #ed6d79;
+}

@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
 import s from './GridItem.module.css';
 import UnitName from '../UnitName/UnitName';
 import AddAssignment from '../AddAssignment/AddAssignment';
 
-const GridItem = ({ id }) => {
+const GridItem = ({ id, unitColor, unitName }) => {
+	// Planner Context
+
 	// UnitName = +1 iterate over x columns
 	const unitNames = [1, 2];
 	const dateWeeks = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33];
 	const assignments = [4, 14];
 
 	if (unitNames.includes(id)) {
-		return <UnitName />;
+		return <UnitName unitColor={unitColor} unitName={unitName} />;
 	} else if (dateWeeks.includes(id)) {
 		return <div>Week Date</div>;
 	} else if (assignments.includes(id)) {

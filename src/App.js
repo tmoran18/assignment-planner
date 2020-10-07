@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AppContext } from './context/AppContext';
 import { InputContext } from './context/InputContext';
+import { PlannerContext } from './context/PlannerContext';
 import NumberOfUnitsInput from './components/NumberOfUnitsInput/NumberOfUnitsInput';
 import GridContainer from './components/GridContainer/GridContainer';
 
@@ -23,11 +24,14 @@ function App() {
 		InputContext,
 	);
 
+	// Planner context
+	const { setPlannerColumns } = useContext(PlannerContext);
 	const saveNumOfUnits = () => {
 		if (numberOfUnitsInput > 0) {
 			setFormCounter(numberOfUnitsInput);
 			setNumberOfUnits(false);
 			setUnitDetails(true);
+			setPlannerColumns(numberOfUnitsInput);
 		} else {
 			alert('Number of Units must be more than 0');
 		}

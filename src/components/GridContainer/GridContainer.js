@@ -28,7 +28,8 @@ const GridContainer = () => {
 					// Skip first cell - bring index back into Sync
 					unitName={index !== 0 && plannerUnitNames[index - 1]}
 					// Skip first cell - bring index back into Sync
-					unitColor={index !== 0 && plannerUnitColors[index - 1]}></GridItem>
+					unitColor={index !== 0 && plannerUnitColors[index - 1]}
+					weekNumbers={index / plannerColumns}></GridItem>
 			))}
 		</div>
 	);

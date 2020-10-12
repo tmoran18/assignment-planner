@@ -4,7 +4,8 @@ import { PlannerContext } from '../context/PlannerContext';
 import UnitName from '../components/UnitName';
 import style from './GridItem.module.css';
 import Assignment from '../components/Assignment';
-import AddAssignment from '../components/AddAssignment';
+import AddAssignmentBtn from '../components/AddAssignmentBtn';
+import AddAssignmentModal from '../components/AddAssignmentModal';
 
 const GridItem = ({ id, unitColor, unitName, weekNumbers }) => {
 	const [isShowing, setIsShowing] = useState(false);
@@ -87,7 +88,7 @@ const GridItem = ({ id, unitColor, unitName, weekNumbers }) => {
 				onMouseEnter={() => setIsShowing(true)}
 				onMouseLeave={() => setIsShowing(false)}
 				className={`${style.grid_item} ${style.add_assignment}`}>
-				{isShowing && <AddAssignment />}
+				{isShowing && <AddAssignmentBtn />}
 			</div>
 		);
 	}

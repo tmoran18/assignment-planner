@@ -8,6 +8,8 @@ export const PlannerContextProvider = (props) => {
 	const [plannerUnitWeeks, setPlannerUnitWeeks] = useState(0);
 	const [plannerUnitColors, setPlannerUnitColors] = useState([]);
 	const [plannerColumns, setPlannerColumns] = useState(0);
+	const [plannerOpaque, setPlannerOpaque] = useState(false);
+	const [showAssignmentModal, setShowAssignmentModal] = useState(false);
 	return (
 		<PlannerContext.Provider
 			value={{
@@ -21,6 +23,10 @@ export const PlannerContextProvider = (props) => {
 				setPlannerUnitWeeks,
 				plannerColumns,
 				setPlannerColumns,
+				plannerOpaque,
+				setPlannerOpaque,
+				showAssignmentModal,
+				setShowAssignmentModal,
 			}}>
 			{props.children}
 		</PlannerContext.Provider>

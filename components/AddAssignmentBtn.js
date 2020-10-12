@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { AssignmentContext } from '../context/AssignmentContext';
 
-const AddAssignment = () => {
+const AddAssignmentBtn = () => {
+	const { setShowAssignmentModal } = useContext(AssignmentContext);
 	return (
-		<div>
+		<div onClick={() => setShowAssignmentModal(true)}>
 			<svg
 				width='30'
 				height='30'
@@ -14,8 +16,14 @@ const AddAssignment = () => {
 					fill='#B4B4B4'
 				/>
 			</svg>
+
+			<style jsx>{`
+				svg {
+					cursor: pointer;
+				}
+			`}</style>
 		</div>
 	);
 };
 
-export default AddAssignment;
+export default AddAssignmentBtn;

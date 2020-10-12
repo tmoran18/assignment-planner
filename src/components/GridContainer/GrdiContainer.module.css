@@ -1,9 +1,0 @@
-#grid_container {
-	border: 1px solid red;
-	display: grid;
-	max-width: 1000px;
-}
-
-.gridItem {
-	border: 1px solid red;
-}

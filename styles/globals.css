@@ -1,0 +1,89 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='date'] {
+	border-radius: 10px;
+	border: 1.5px solid #e1e1e9;
+	padding: 12px 15px;
+	min-width: 300px;
+	max-width: 350px;
+	outline: none;
+	color: #8f969e;
+	margin: 10px 0px;
+}
+
+input:focus {
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.07), 0 3px 6px rgba(0, 0, 0, 0.07);
+}
+
+.inputContainer {
+	display: flex;
+	flex-direction: column;
+	max-width: 500px;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	padding: 0 3px;
+}
+
+button {
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.1);
+	padding: 8px 24px;
+	font-size: 16px;
+	border-radius: 4px;
+	border: 1px solid #e1e1e9;
+	background: white;
+	cursor: pointer;
+	margin-top: 5px;
+}
+
+button:hover {
+	transform: scale(1.05);
+}
+
+.blue_bg {
+	background: #50c4ff;
+}
+
+.red_bg {
+	background: #ed6d79;
+}
+
+.flex-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.flex-col {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.flex-col-reverse {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.max-width-input {
+	max-width: 280px;
+}

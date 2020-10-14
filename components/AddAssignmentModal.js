@@ -1,14 +1,69 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { InputContext } from '../context/InputContext';
+import { AssignmentContext } from '../context/AssignmentContext';
 
 const AddAssignmentModal = () => {
+	const {
+		assignmentNameInput,
+		setAssignmentNameInput,
+		assignmentTypeInput,
+		setAssignmentTypeInput,
+		assignmentDueDateInput,
+		setAssignmentDueDateInput,
+		assignmentLengthInput,
+		setAssignmentLengthInput,
+	} = useContext(InputContext);
+
+	const {
+		assignments,
+		setAssignments,
+		showAssignmentModal,
+		setShowAssignmentModal,
+		assignmentModalKeyLocation,
+	} = useContext(AssignmentContext);
+
+	const addAssignment = (e) => {
+		e.preventDefault();
+		setAssignments({
+			...assignments,
+			[`key_${assignmentModalKeyLocation}`]: {
+				name: assignmentNameInput,
+				type: assignmentTypeInput,
+				dueDate: assignmentDueDateInput,
+				length: assignmentLengthInput,
+			},
+		});
+		// Reset Inputs
+		setAssignmentNameInput('');
+		setAssignmentTypeInput('');
+		setAssignmentDueDateInput('');
+		setAssignmentLengthInput('');
+
+		setShowAssignmentModal(false);
+	};
 	return (
-		<div>
+		<div className={showAssignmentModal}>
 			<form className='flex-col'>
-				<input type='text' placeholder='Assignment Name' />
-				<input type='text' placeholder='Assingment Type' />
-				<input type='date' />
-				<input type='text' placeholder='length' />
-				<input type='submit' value='Save' />
+				<input
+					onChange={(e) => setAssignmentNameInput(e.target.value)}
+					type='text'
+					placeholder='Assignment Name'
+				/>
+				<input
+					onChange={(e) => setAssignmentTypeInput(e.target.value)}
+					type='text'
+					placeholder='Assingment Type'
+				/>
+				<input
+					onChange={(e) => setAssignmentDueDateInput(e.target.value)}
+					type='date'
+				/>
+				<input
+					onChange={(e) => setAssignmentLengthInput(e.target.value)}
+					type='text'
+					placeholder='length'
+				/>
+				<button onClick={addAssignment}>Save</button>
 			</form>
 			<style jsx>{`
 				div {
@@ -26,6 +81,12 @@ const AddAssignmentModal = () => {
 					padding: 120px;
 					border-radius: 4px;
 					text-align: center;
+				}
+				.hide {
+					display: none;
+				}
+				.show {
+					display: block;
 				}
 			`}</style>
 		</div>

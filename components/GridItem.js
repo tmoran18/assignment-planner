@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { format, addWeeks, subDays } from 'date-fns';
 import { PlannerContext } from '../context/PlannerContext';
+import { AssignmentContext } from '../context/AssignmentContext';
 import UnitName from '../components/UnitName';
 import style from './GridItem.module.css';
 import Assignment from '../components/Assignment';
 import AddAssignmentBtn from '../components/AddAssignmentBtn';
-import AddAssignmentModal from '../components/AddAssignmentModal';
 
 const GridItem = ({ id, unitColor, unitName, weekNumbers }) => {
+	// State to show
 	const [isShowing, setIsShowing] = useState(false);
 	// Planner Context
 	const {
@@ -17,15 +18,20 @@ const GridItem = ({ id, unitColor, unitName, weekNumbers }) => {
 	} = useContext(PlannerContext);
 	const columns = parseInt(plannerColumns) + 1;
 
+	// Assignment Context
+	const { assignments } = useContext(AssignmentContext);
+
 	// UnitName Key Locations on Grid
 	let unitNamesKey = [...Array(parseInt(plannerColumns))].map((item, index) => {
 		return index + 1;
 	});
 
 	// Date Weeks key locations on Grid
-	let unitDateKeys = [...Array(plannerUnitWeeks + 1)].map((item, index) => {
-		return index * columns;
-	});
+	let unitDateKeys = [...Array(parseInt(plannerUnitWeeks + 1))].map(
+		(item, index) => {
+			return index * columns;
+		},
+	);
 	// Remove the 0 from array
 	unitDateKeys.shift();
 
@@ -50,9 +56,7 @@ const GridItem = ({ id, unitColor, unitName, weekNumbers }) => {
 			return `${firstStartDate} - ${weekEndSubtractOneDay}`;
 		}
 	};
-
-	const assignments = [4, 14];
-
+	// Render Unit Names in Correct Positions
 	if (unitNamesKey.includes(id)) {
 		return (
 			<UnitName
@@ -61,6 +65,7 @@ const GridItem = ({ id, unitColor, unitName, weekNumbers }) => {
 				unitName={unitName}
 			/>
 		);
+		// Render Unit Dates / Weeks in Correct Positions
 	} else if (unitDateKeys.includes(id)) {
 		return (
 			<div className={`${style.grid_item} ${style.week}`}>
@@ -68,12 +73,19 @@ const GridItem = ({ id, unitColor, unitName, weekNumbers }) => {
 				<span>{getWeek()}</span>
 			</div>
 		);
-	} else if (assignments.includes(id)) {
+		// Render Assignments in Correct Positions when present
+	} else if (assignments.hasOwnProperty(`key_${id}`)) {
 		return (
 			<div className={`${style.grid_item} ${style.assignment}`}>
-				<Assignment />
+				<Assignment
+					name={assignments[`key_${id}`].name}
+					type={assignments[`key_${id}`].type}
+					dueDate={assignments[`key_${id}`].dueDate}
+					length={assignments[`key_${id}`].length}
+				/>
 			</div>
 		);
+		// Render first cell with Weeks
 	} else if (id === 0) {
 		return (
 			<div
@@ -82,13 +94,14 @@ const GridItem = ({ id, unitColor, unitName, weekNumbers }) => {
 				Weeks
 			</div>
 		);
+		// All other empty cells to show Add Assignment Button
 	} else {
 		return (
 			<div
 				onMouseEnter={() => setIsShowing(true)}
 				onMouseLeave={() => setIsShowing(false)}
 				className={`${style.grid_item} ${style.add_assignment}`}>
-				{isShowing && <AddAssignmentBtn />}
+				{isShowing && <AddAssignmentBtn id={id} />}
 			</div>
 		);
 	}

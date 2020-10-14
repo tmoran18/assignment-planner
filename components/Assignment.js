@@ -1,16 +1,16 @@
 import React from 'react';
 
-const Assignment = () => {
+const Assignment = ({ name, type, dueDate, length }) => {
 	return (
 		<div>
 			<div>
-				<span>Assignment Name</span>
+				<span>{name}</span>
 				<br></br>
-				<span>Type</span>
+				<span>{type}</span>
 				<br />
-				<span>Due Date</span>
+				<span>{dueDate}</span>
 				<br />
-				<span>Length</span>
+				<span>{length}</span>
 				<br />
 			</div>
 		</div>

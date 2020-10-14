@@ -1,13 +1,19 @@
 import React, { useContext } from 'react';
 import { PlannerContext } from '../context/PlannerContext';
+import { AssignmentContext } from '../context/AssignmentContext';
 import GridItem from '../components/GridItem';
+import AssignmentModal from '../components/AddAssignmentModal';
 
 const GridContainer = () => {
-	const { plannerColumns } = useContext(PlannerContext);
-	const { plannerUnitWeeks } = useContext(PlannerContext);
-	const { plannerUnitColors, plannerUnitNames, plannerOpaque } = useContext(
-		PlannerContext,
-	);
+	const {
+		plannerColumns,
+		plannerUnitWeeks,
+		plannerUnitColors,
+		plannerUnitNames,
+		plannerOpaque,
+	} = useContext(PlannerContext);
+
+	const { showAssignmentModal } = useContext(AssignmentContext);
 
 	const columns = parseInt(plannerColumns) + 1;
 	const rows = parseInt(plannerUnitWeeks) + 1;
@@ -31,6 +37,7 @@ const GridContainer = () => {
 					unitColor={index !== 0 && plannerUnitColors[index - 1]}
 					weekNumbers={index / plannerColumns}></GridItem>
 			))}
+			{showAssignmentModal && <AssignmentModal />}
 			<style jsx>{`
 				#grid_container {
 					display: grid;

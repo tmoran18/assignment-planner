@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { motion } from 'framer-motion';
 import { format, addWeeks, subDays } from 'date-fns';
 import { PlannerContext } from '../context/PlannerContext';
 import { AssignmentContext } from '../context/AssignmentContext';
@@ -8,15 +7,18 @@ import style from './GridItem.module.css';
 import Assignment from '../components/Assignment';
 import AddAssignmentBtn from '../components/AddAssignmentBtn';
 
-const GridItem = ({ id, unitColor, unitName, weekNumbers }) => {
-	// State to show
+const GridItem = ({ id, unitColor, unitName }) => {
+	// State to show add AssingmentBtn
 	const [isShowing, setIsShowing] = useState(false);
+
 	// Planner Context
 	const {
 		plannerColumns,
 		plannerUnitStartDates,
 		plannerUnitWeeks,
 	} = useContext(PlannerContext);
+
+	// Add 1 to plannerColumns for mathematically rendering columns
 	const columns = parseInt(plannerColumns) + 1;
 
 	// Assignment Context
@@ -33,7 +35,8 @@ const GridItem = ({ id, unitColor, unitName, weekNumbers }) => {
 			return index * columns;
 		},
 	);
-	// Remove the 0 from array
+
+	// Remove the 0 index from array
 	unitDateKeys.shift();
 
 	// Get the dates for the Weeks
@@ -57,6 +60,7 @@ const GridItem = ({ id, unitColor, unitName, weekNumbers }) => {
 			return `${firstStartDate} - ${weekEndSubtractOneDay}`;
 		}
 	};
+
 	// Render Unit Names in Correct Positions
 	if (unitNamesKey.includes(id)) {
 		return (

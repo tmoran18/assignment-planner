@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-import { motion } from 'framer-motion';
 import { InputContext } from '../context/InputContext';
 import { AssignmentContext } from '../context/AssignmentContext';
+import { motion } from 'framer-motion';
 
 const AddAssignmentModal = () => {
+	// Input Context
 	const {
 		assignmentNameInput,
 		setAssignmentNameInput,
@@ -15,6 +16,7 @@ const AddAssignmentModal = () => {
 		setAssignmentLengthInput,
 	} = useContext(InputContext);
 
+	// Assignment Context
 	const {
 		assignments,
 		setAssignments,
@@ -23,6 +25,7 @@ const AddAssignmentModal = () => {
 		assignmentModalKeyLocation,
 	} = useContext(AssignmentContext);
 
+	// Add assignments to current state
 	const addAssignment = (e) => {
 		e.preventDefault();
 		setAssignments({
@@ -41,6 +44,7 @@ const AddAssignmentModal = () => {
 		setAssignmentLengthInput('');
 		setShowAssignmentModal(false);
 	};
+
 	return (
 		<div className={showAssignmentModal}>
 			<form className='flex-col'>

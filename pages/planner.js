@@ -1,14 +1,14 @@
 import React, { useContext, useEffect } from 'react';
 import Head from 'next/head';
-import GridContainer from '../components/GridContainer';
-import Layout from '../components/Layout';
 import { AssignmentContext } from '../context/AssignmentContext';
 import { PlannerContext } from '../context/PlannerContext';
+import Layout from '../components/Layout';
+import GridContainer from '../components/GridContainer';
 
-// If plannerSaved = true show create new planner button & Saved Planner Button
-// if plannerSaved = false show create new Planner Button
 export default function Planner() {
+	// Assignment Context
 	const { assignments, setAssignments } = useContext(AssignmentContext);
+	// Planner Context
 	const {
 		plannerUnitNames,
 		setPlannerUnitNames,
@@ -23,6 +23,7 @@ export default function Planner() {
 		setPlannerSaved,
 	} = useContext(PlannerContext);
 
+	// Save Planner State to local storage
 	const savePlannerLocal = () => {
 		localStorage.setItem('assignments', JSON.stringify(assignments));
 		localStorage.setItem('plannerUnitNames', JSON.stringify(plannerUnitNames));
@@ -40,11 +41,12 @@ export default function Planner() {
 		setPlannerSaved(true);
 	};
 
-	// Check if there is a saved planner on load - if there is show saved planner button
+	// Check if there is a saved planner on load - if there is update planner States
 	useEffect(() => {
 		localStorage.getItem('plannerSaved') !== null && setSavedPlannerStates();
 	}, []);
 
+	// Retrieve planner states and setStates
 	const setSavedPlannerStates = () => {
 		const localAssignments = JSON.parse(localStorage.getItem('assignments'));
 		const localPlannerUnitStartDates = JSON.parse(

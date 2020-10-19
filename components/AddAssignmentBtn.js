@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { motion } from 'framer-motion';
 import { AssignmentContext } from '../context/AssignmentContext';
+import { motion } from 'framer-motion';
 
 const AddAssignmentBtn = ({ id }) => {
 	const { setShowAssignmentModal, setAssignmentModalKeyLocation } = useContext(

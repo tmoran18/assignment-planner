@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { motion } from 'framer-motion';
 import { AssignmentContext } from '../context/AssignmentContext';
 
 const AddAssignmentBtn = ({ id }) => {
@@ -6,7 +7,9 @@ const AddAssignmentBtn = ({ id }) => {
 		AssignmentContext,
 	);
 	return (
-		<div
+		<motion.div
+			whileHover={{ scale: 1.2 }}
+			whileTap={{ scale: 0.8 }}
 			onClick={() => {
 				setShowAssignmentModal(true);
 				setAssignmentModalKeyLocation(id);
@@ -27,7 +30,7 @@ const AddAssignmentBtn = ({ id }) => {
 					cursor: pointer;
 				}
 			`}</style>
-		</div>
+		</motion.div>
 	);
 };
 

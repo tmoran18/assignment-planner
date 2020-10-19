@@ -68,6 +68,14 @@ button:hover {
 	background: #ed6d79;
 }
 
+.green_bg {
+	background: #80e5a6;
+}
+
+.purple_bg {
+	background: #b985ff;
+}
+
 .flex-row {
 	display: flex;
 	flex-direction: row;

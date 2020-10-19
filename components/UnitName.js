@@ -8,7 +8,7 @@ const UnitName = ({ unitName, unitColor }) => {
 				.unitName {
 					text-align: center;
 					color: white;
-					border: 2px solid #333;
+					padding: 0px 20px;
 				}
 				.unitName h3 {
 					font-weight: 600;

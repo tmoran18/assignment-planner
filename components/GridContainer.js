@@ -21,7 +21,6 @@ const GridContainer = () => {
 
 	return (
 		<div
-			className={plannerOpaque && 'opaque'}
 			id='grid_container'
 			style={{
 				gridTemplateColumns: `repeat(${columns}, 1fr)`,

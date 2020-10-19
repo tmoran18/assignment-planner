@@ -13,7 +13,6 @@ export default function Layout({ children, pageTitle, ...props }) {
 			<section className='layout'>
 				<Header />
 				<div className='content'>{children}</div>
-				<Footer />
 			</section>
 
 			<style jsx global>{`

@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { motion } from 'framer-motion';
 import { format, addWeeks, subDays } from 'date-fns';
 import { PlannerContext } from '../context/PlannerContext';
 import { AssignmentContext } from '../context/AssignmentContext';
@@ -69,7 +70,9 @@ const GridItem = ({ id, unitColor, unitName, weekNumbers }) => {
 	} else if (unitDateKeys.includes(id)) {
 		return (
 			<div className={`${style.grid_item} ${style.week}`}>
-				<span>{`Week ${id / columns}`}</span>
+				<span style={{ fontWeight: '700', fontSize: '18px' }}>{`Week ${
+					id / columns
+				}`}</span>
 				<span>{getWeek()}</span>
 			</div>
 		);
@@ -90,7 +93,12 @@ const GridItem = ({ id, unitColor, unitName, weekNumbers }) => {
 		return (
 			<div
 				className={`${style.grid_item} ${style.week_header}`}
-				style={{ border: '2px solid #333' }}>
+				style={{
+					color: 'white',
+					fontSize: '18px',
+					background: '#333333',
+					border: 'none',
+				}}>
 				Weeks
 			</div>
 		);

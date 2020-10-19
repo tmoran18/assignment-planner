@@ -32,12 +32,12 @@ const ColorPicker = () => {
 				</label>
 				<label className='container'>
 					<input
-						value='yellow'
+						value='purple'
 						type='radio'
 						onChange={handleRadioChange}
-						checked={selectColorInput === 'yellow'}
+						checked={selectColorInput === 'purple'}
 					/>
-					<span className='checkmark yellow'></span>
+					<span className='checkmark purple'></span>
 				</label>
 				<label className='container'>
 					<input
@@ -74,8 +74,8 @@ const ColorPicker = () => {
 						background-color: #74e39a;
 					}
 
-					.yellow {
-						background-color: #fdfd96;
+					.purple {
+						background-color: #b985ff;
 					}
 
 					.red {

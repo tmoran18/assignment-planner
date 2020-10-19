@@ -10,6 +10,7 @@ export const PlannerContextProvider = (props) => {
 	const [plannerColumns, setPlannerColumns] = useState(0);
 	const [plannerOpaque, setPlannerOpaque] = useState(false);
 	const [showAssignmentModal, setShowAssignmentModal] = useState(false);
+	const [plannerSaved, setPlannerSaved] = useState(false);
 	return (
 		<PlannerContext.Provider
 			value={{
@@ -27,6 +28,8 @@ export const PlannerContextProvider = (props) => {
 				setPlannerOpaque,
 				showAssignmentModal,
 				setShowAssignmentModal,
+				plannerSaved,
+				setPlannerSaved,
 			}}>
 			{props.children}
 		</PlannerContext.Provider>

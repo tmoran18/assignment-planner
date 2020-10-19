@@ -9,9 +9,10 @@
   },
   "dependencies": {
     "date-fns": "^2.16.1",
-    "framer-motion": "^2.8.0",
+    "framer-motion": "^2.9.1",
     "next": "9.5.5",
     "react": "16.13.1",
+    "react-component-export-image": "^0.1.7",
     "react-dom": "16.13.1"
   }
 }

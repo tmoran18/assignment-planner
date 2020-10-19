@@ -1,14 +1,23 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { InputContext } from '../context/InputContext';
+import { PlannerContext } from '../context/PlannerContext';
 import Layout from '../components/Layout';
 
 export default function Home() {
 	const { numberOfWeeksInput, setNumberOfUnitsInput } = useContext(
 		InputContext,
 	);
+
+	const { plannerSaved, setPlannerSaved } = useContext(PlannerContext);
+
+	// Check if there is a saved planner on load - if there is show saved planner button
+	useEffect(() => {
+		localStorage.getItem('plannerSaved') !== null && setPlannerSaved(true);
+	}, []);
+
 	return (
 		<div>
 			<Head>
@@ -18,9 +27,17 @@ export default function Home() {
 
 			<Layout>
 				<Link href='/units-count'>
-					<a>Unit Count</a>
+					<a>
+						<button>Create New Planner</button>
+					</a>
 				</Link>
-				<p>{numberOfWeeksInput}</p>
+				{plannerSaved && (
+					<Link href='/planner'>
+						<a>
+							<button>Saved Planner</button>
+						</a>
+					</Link>
+				)}
 			</Layout>
 		</div>
 	);

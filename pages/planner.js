@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import { AssignmentContext } from '../context/AssignmentContext';
 import { PlannerContext } from '../context/PlannerContext';
 import Layout from '../components/Layout';
@@ -79,8 +80,18 @@ export default function Planner() {
 			</Head>
 
 			<Layout>
-				<GridContainer />
-				<button onClick={savePlannerLocal}>Save Planner</button>
+				{plannerColumns == 0 ? (
+					<div>
+						<Link href='/units-count'>
+							<button>Create Planner</button>
+						</Link>
+					</div>
+				) : (
+					<div>
+						<GridContainer />
+						<button onClick={savePlannerLocal}>Save Planner</button>
+					</div>
+				)}
 			</Layout>
 		</div>
 	);

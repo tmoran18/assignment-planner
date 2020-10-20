@@ -16,10 +16,14 @@ const GridItem = ({ id, unitColor, unitName }) => {
 		plannerColumns,
 		plannerUnitStartDates,
 		plannerUnitWeeks,
+		plannerUnitColors,
 	} = useContext(PlannerContext);
 
 	// Add 1 to plannerColumns for mathematically rendering columns
 	const columns = parseInt(plannerColumns) + 1;
+	const rows = parseInt(plannerUnitWeeks) + 1;
+	// Multiple columns * rows to get number of Grid items
+	const gridItems = columns * rows;
 
 	// Assignment Context
 	const { assignments } = useContext(AssignmentContext);
@@ -61,6 +65,34 @@ const GridItem = ({ id, unitColor, unitName }) => {
 		}
 	};
 
+	// Unit Color for Columns Key
+	const getUnitColumnColor = (id) => {
+		let column_1_color = [...Array(parseInt(gridItems))].map((item, index) => {
+			return index * columns + 1;
+		});
+		let column_2_color = [...Array(parseInt(gridItems))].map((item, index) => {
+			return index * columns + 2;
+		});
+
+		let column_3_color = [...Array(parseInt(gridItems))].map((item, index) => {
+			return index * columns + 3;
+		});
+
+		let column_4_color = [...Array(parseInt(gridItems))].map((item, index) => {
+			return index * columns + 4;
+		});
+
+		if (column_1_color.includes(id)) {
+			return plannerUnitColors[0];
+		} else if (column_2_color.includes(id)) {
+			return plannerUnitColors[1];
+		} else if (column_3_color.includes(id)) {
+			return plannerUnitColors[2];
+		} else if (column_4_color.includes(id)) {
+			return plannerUnitColors[3];
+		}
+	};
+
 	// Render Unit Names in Correct Positions
 	if (unitNamesKey.includes(id)) {
 		return (
@@ -89,6 +121,7 @@ const GridItem = ({ id, unitColor, unitName }) => {
 					type={assignments[`key_${id}`].type}
 					dueDate={assignments[`key_${id}`].dueDate}
 					length={assignments[`key_${id}`].length}
+					bgColor={getUnitColumnColor(id)}
 				/>
 			</div>
 		);

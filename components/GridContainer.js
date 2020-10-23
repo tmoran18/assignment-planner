@@ -47,7 +47,7 @@ const GridContainer = () => {
 					display: grid;
 					max-width: 1000px;
 					min-width: 600px;
-					margin: 100px auto;
+					margin: auto;
 					box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1),
 						0 10px 10px rgba(0, 0, 0, 0.1);
 				}

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { AssignmentContext } from '../context/AssignmentContext';
@@ -9,6 +9,7 @@ import GridContainer from '../components/GridContainer';
 export default function Planner() {
 	// Assignment Context
 	const { assignments, setAssignments } = useContext(AssignmentContext);
+	const [plannerSavedAlert, setPlannerSavedAlert] = useState(false);
 	// Planner Context
 	const {
 		plannerUnitNames,
@@ -72,6 +73,13 @@ export default function Planner() {
 		setAssignments(localAssignments);
 	};
 
+	const handlePlannerSavedAlert = () => {
+		setPlannerSavedAlert(true);
+		setTimeout(() => {
+			setPlannerSavedAlert(false);
+		}, 3000);
+	};
+
 	return (
 		<div>
 			<Head>
@@ -89,10 +97,32 @@ export default function Planner() {
 				) : (
 					<div>
 						<GridContainer />
-						<button onClick={savePlannerLocal}>Save Planner</button>
+						{plannerSavedAlert && (
+							<div className='alert_saved'>Planner Saved</div>
+						)}
+						<button onClick={(savePlannerLocal, handlePlannerSavedAlert)}>
+							Save Planner
+						</button>
 					</div>
 				)}
 			</Layout>
+			<style jsx>{`
+				.alert_saved {
+					color: #333;
+					font-weight: bold;
+					text-align: center;
+					font-size: 20px;
+					padding: 20px;
+					background-color: #bced91;
+					margin-top: 30px;
+				}
+				div {
+					text-align: center;
+				}
+				button {
+					margin: 30px;
+				}
+			`}</style>
 		</div>
 	);
 }

@@ -1,6 +1,7 @@
 import React from 'react';
-
+import { format } from 'date-fns';
 const Assignment = ({ name, type, dueDate, length, bgColor }) => {
+	const dueDateFormatted = format(new Date(dueDate), 'dd-MMM');
 	return (
 		<div>
 			<div className={`${bgColor} ${bgColor}_border shadow`}>
@@ -8,7 +9,7 @@ const Assignment = ({ name, type, dueDate, length, bgColor }) => {
 				<br></br>
 				<span>{type}</span>
 				<br />
-				<span>{dueDate}</span>
+				<span>{dueDateFormatted}</span>
 				<br />
 				<span>{length}</span>
 				<br />

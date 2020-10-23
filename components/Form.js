@@ -8,6 +8,7 @@ import TextInput from '../components/UnitNameInput';
 import DateInput from '../components/DateInput';
 import NumberOfWeeksInput from '../components/NumberOfWeeksInput';
 import ColorPicker from '../components/ColorPicker';
+import UnitNameInput from '../components/UnitNameInput';
 
 const Form = () => {
 	const [unitFormNumber, setUnitFormNumber] = useState(1);
@@ -37,9 +38,9 @@ const Form = () => {
 	} = useContext(PlannerContext);
 
 	// If the formCounter === 0 - show the planner
-	useEffect(() => {
-		!formCounter && router.push('/planner');
-	}, [formCounter]);
+	// useEffect(() => {
+	// 	!formCounter && router.push('/planner');
+	// }, [formCounter]);
 
 	const handleFormSubmit = (e) => {
 		if (!unitNameInput) {
@@ -59,9 +60,10 @@ const Form = () => {
 			setSelectColorInput('');
 			// Set Unit Weeks to state
 			setPlannerUnitWeeks(numberOfWeeksInput);
-			// Countdown for how many forms to show
-			setFormCounter(formCounter - 1);
-			setUnitFormNumber(unitFormNumber + 1);
+			// If the formcounter = unit form number route to planner, else show the unit number
+			formCounter == unitFormNumber
+				? router.push('/planner')
+				: setUnitFormNumber(unitFormNumber + 1);
 			e.preventDefault();
 		}
 	};

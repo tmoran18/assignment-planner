@@ -3,7 +3,7 @@ import React from 'react';
 const Assignment = ({ name, type, dueDate, length, bgColor }) => {
 	return (
 		<div>
-			<div className={`${bgColor} ${bgColor}_border`}>
+			<div className={`${bgColor} ${bgColor}_border shadow`}>
 				<span className='bold'>{name}</span>
 				<br></br>
 				<span>{type}</span>
@@ -14,6 +14,10 @@ const Assignment = ({ name, type, dueDate, length, bgColor }) => {
 				<br />
 			</div>
 			<style jsx>{`
+				.shadow {
+					box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.12),
+						1px 2px 15px rgba(0, 0, 0, 0.14);
+				}
 				.blue {
 					background: #50c4ff;
 				}

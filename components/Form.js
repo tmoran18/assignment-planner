@@ -75,12 +75,14 @@ const Form = () => {
 				<DateInput label='Unit Start Date' name='unitStartDate' />
 				<NumberOfWeeksInput label='Unit Weeks' name='unitWeeks' />
 				<ColorPicker />
-				<button onClick={handleFormSubmit} type='submit' value='submit'>
-					Save
-				</button>
-				<Link href='/units-count'>
-					<button>Back</button>
-				</Link>
+				<div className='btn_container'>
+					<button onClick={handleFormSubmit} type='submit' value='submit'>
+						Save
+					</button>
+					<Link href='/units-count'>
+						<button className='back_btn'>Back</button>
+					</Link>
+				</div>
 			</div>
 			<style jsx>
 				{`
@@ -96,6 +98,15 @@ const Form = () => {
 					form h2 {
 						text-align: center;
 						color: #5e5e5e;
+					}
+					.btn_container {
+						display: flex;
+						justify-content: space-between;
+					}
+					.back_btn {
+						background: none;
+						color: #01a5fd;
+						border: 1.5px solid #01a5fd;
 					}
 				`}
 			</style>

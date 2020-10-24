@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import Header from './Header';
+import Navbar from './Navbar';
+import MobileNavBar from './MobileNavBar';
 import Footer from './Footer';
 import React, { useEffect } from 'react';
 
@@ -11,7 +12,8 @@ export default function Layout({ children, pageTitle, ...props }) {
 				<title>{pageTitle}</title>
 			</Head>
 			<section className='layout'>
-				<Header />
+				<Navbar />
+				<MobileNavBar />
 				<div className='content'>{children}</div>
 			</section>
 

@@ -104,7 +104,7 @@ const Form = () => {
 						justify-content: space-between;
 					}
 					.back_btn {
-						background: none;
+						background: white;
 						color: #01a5fd;
 						border: 1.5px solid #01a5fd;
 					}

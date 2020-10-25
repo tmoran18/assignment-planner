@@ -7,9 +7,7 @@ export default function MobileNavbar() {
 	const handleMobileNavClick = () => {
 		mobileNavIsOpen ? setMobileNavIsOpen(false) : setMobileNavIsOpen(true);
 	};
-	window.addEventListener('resize', () => {
-		window.innerWidth > 600 && setMobileNavIsOpen(false);
-	});
+
 	return (
 		<nav className='mobileNav_container'>
 			<img src='./planner_logo.png' width='170' alt='logo' />

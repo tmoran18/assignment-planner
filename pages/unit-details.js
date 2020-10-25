@@ -16,7 +16,9 @@ export default function UnitDetails() {
 			</Head>
 
 			<Layout>
-				<Form />
+				<section style={{ height: '100vh' }}>
+					<Form />
+				</section>
 			</Layout>
 		</div>
 	);

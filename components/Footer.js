@@ -3,18 +3,34 @@ import Link from 'next/link';
 export default function Footer() {
 	return (
 		<>
-			<footer>Footer</footer>
+			<footer>
+				<img src='/planner_logo_white.png' width='200' alt='' />
+				<span>Copyright &copy; - Tim Moran 2020</span>
+			</footer>
 			<style jsx>
 				{`
 					footer {
-						position: absolute;
+						position: sticky;
 						left: 0;
 						bottom: 0;
 						right: 0;
-						background-color: #80e5a6;
+						background-color: #333;
 						color: white;
+						height: 80px;
+						padding: 20px;
 						text-align: center;
-						height: 50px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+					span {
+						margin-top: 10px;
+						margin-left: 50px;
+					}
+					@media only screen and (max-width: 600px) {
+						footer {
+							display: none;
+						}
 					}
 				`}
 			</style>

@@ -6,6 +6,7 @@ import { PlannerContext } from '../context/PlannerContext';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
+import Button from '../components/Button';
 
 export default function UnitNum() {
 	// App context
@@ -47,8 +48,10 @@ export default function UnitNum() {
 			</Head>
 
 			<Layout>
-				<motion.div className='flex-col max-width-input'>
-					<label htmlFor=''>Number of Units</label>
+				<motion.div
+					className='flex-col max-width-input'
+					style={{ height: '100vh' }}>
+					<label htmlFor='Number of Units'>Number of Units</label>
 					<input
 						type='number'
 						placeholder='Number of Units'
@@ -56,13 +59,10 @@ export default function UnitNum() {
 						value={numberOfUnitsInput}
 						onChange={(e) => setNumberOfUnitsInput(e.target.value)}
 					/>
-					<button href='/unit-details' onClick={saveNumOfUnits}>
+					<Button href='/unit-details' onClick={saveNumOfUnits}>
 						Next
-					</button>
+					</Button>
 				</motion.div>
-				<style jsx>{`button {
-    max-widt
-  }`}</style>
 			</Layout>
 		</>
 	);

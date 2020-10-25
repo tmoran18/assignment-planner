@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { InputContext } from '../context/InputContext';
@@ -8,7 +8,7 @@ import TextInput from '../components/UnitNameInput';
 import DateInput from '../components/DateInput';
 import NumberOfWeeksInput from '../components/NumberOfWeeksInput';
 import ColorPicker from '../components/ColorPicker';
-import UnitNameInput from '../components/UnitNameInput';
+import Button from '../components/Button';
 
 const Form = () => {
 	const [unitFormNumber, setUnitFormNumber] = useState(1);
@@ -36,11 +36,6 @@ const Form = () => {
 		setPlannerUnitColors,
 		setPlannerUnitWeeks,
 	} = useContext(PlannerContext);
-
-	// If the formCounter === 0 - show the planner
-	// useEffect(() => {
-	// 	!formCounter && router.push('/planner');
-	// }, [formCounter]);
 
 	const handleFormSubmit = (e) => {
 		if (!unitNameInput) {
@@ -76,11 +71,11 @@ const Form = () => {
 				<NumberOfWeeksInput label='Unit Weeks' name='unitWeeks' />
 				<ColorPicker />
 				<div className='btn_container'>
-					<button onClick={handleFormSubmit} type='submit' value='submit'>
+					<Button onClick={handleFormSubmit} type='submit' value='submit'>
 						Save
-					</button>
+					</Button>
 					<Link href='/units-count'>
-						<button className='back_btn'>Back</button>
+						<Button style='inverse'>Back</Button>
 					</Link>
 				</div>
 			</div>
@@ -102,11 +97,6 @@ const Form = () => {
 					.btn_container {
 						display: flex;
 						justify-content: space-between;
-					}
-					.back_btn {
-						background: white;
-						color: #01a5fd;
-						border: 1.5px solid #01a5fd;
 					}
 				`}
 			</style>

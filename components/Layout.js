@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import Navbar from './Navbar';
 import MobileNavBar from './MobileNavBar';
-import Footer from './Footer';
-import React, { useEffect } from 'react';
 
 export default function Layout({ children, pageTitle, ...props }) {
 	return (
@@ -42,7 +40,6 @@ export default function Layout({ children, pageTitle, ...props }) {
 					display: flex;
 					flex-direction: column;
 					align-items: center;
-					max-width: 1000px;
 					margin: auto;
 				}
 			`}</style>

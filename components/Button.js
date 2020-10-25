@@ -20,7 +20,6 @@ export default function Button({ children, onClick, style }) {
 						color: white;
 						font-weight: bold;
 						cursor: pointer;
-						margin: 5px 10px;
 					}
 					.inverse {
 						background: white;

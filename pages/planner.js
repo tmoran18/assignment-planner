@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { AssignmentContext } from '../context/AssignmentContext';
 import { PlannerContext } from '../context/PlannerContext';
 import Layout from '../components/Layout';
 import GridContainer from '../components/GridContainer';
+import Button from '../components/Button';
 
 export default function Planner() {
 	// Assignment Context
@@ -82,26 +83,25 @@ export default function Planner() {
 
 			<Layout>
 				{plannerColumns == 0 ? (
-					<div>
+					<div style={{ height: '100vh' }}>
 						<Link href='/units-count'>
-							<button>Create Planner</button>
+							<Button>Create Planner</Button>
 						</Link>
 					</div>
 				) : (
-					<div>
+					<div style={{ height: '100vh' }}>
 						<GridContainer />
-						<button onClick={savePlannerLocal}>
+						<br></br>
+						<br></br>
+						<Button onClick={savePlannerLocal}>
 							{plannerSaved ? 'Planner Saved' : 'Save Planner'}
-						</button>
+						</Button>
 					</div>
 				)}
 			</Layout>
 			<style jsx>{`
 				div {
 					text-align: center;
-				}
-				button {
-					margin: 30px;
 				}
 			`}</style>
 		</div>

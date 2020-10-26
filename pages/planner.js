@@ -89,19 +89,31 @@ export default function Planner() {
 						</Link>
 					</div>
 				) : (
-					<div style={{ height: '100vh' }}>
+					<div className='container' style={{ height: '100vh' }}>
 						<GridContainer />
 						<br></br>
 						<br></br>
-						<Button onClick={savePlannerLocal}>
-							{plannerSaved ? 'Planner Saved' : 'Save Planner'}
-						</Button>
+						<div style={{ margin: 'auto', paddingBottom: '20px' }}>
+							<Button onClick={savePlannerLocal}>
+								{plannerSaved ? 'Planner Saved' : 'Save Planner'}
+							</Button>
+						</div>
 					</div>
 				)}
 			</Layout>
 			<style jsx>{`
 				div {
 					text-align: center;
+				}
+				@media only screen and (max-width: 800px) {
+					.container {
+						display: flex;
+						flex-direction: column;
+						width: 95%;
+						overflow: auto;
+						align-items: flex-start;
+						text-align: center;
+					}
 				}
 			`}</style>
 		</div>

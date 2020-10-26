@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 import { PlannerContext } from '../context/PlannerContext';
+import { InputContext } from '../context/InputContext';
+import { AssignmentContext } from '../context/AssignmentContext';
 import Layout from '../components/Layout';
 import Button from '../components/Button';
 import FlexRow from '../components/FlexRow';
@@ -13,6 +15,12 @@ export default function Home() {
 	const router = useRouter();
 	// Planner Context
 	const { plannerSaved, setPlannerSaved } = useContext(PlannerContext);
+
+	const { setNumberOfUnitsInput, setUnitStartDateInput } = useContext(
+		InputContext,
+	);
+
+	const { setAssignments } = useContext(AssignmentContext);
 
 	// Check if there is a saved planner on load - if there is, show saved planner button
 	useEffect(() => {
@@ -31,11 +39,20 @@ export default function Home() {
 			con
 				? (setPlannerSaved(false),
 				  localStorage.clear(),
+				  setNumberOfUnitsInput(0),
+				  setAssignments({}),
+				  setUnitStartDateInput(''),
 				  router.push('/units-count'))
 				: //   Else route to current page
-				  router.push('/');
+				  (router.push('/'),
+				  setNumberOfUnitsInput(0),
+				  setAssignments({}),
+				  setUnitStartDateInput(''));
 		} else {
 			router.push('/units-count');
+			setNumberOfUnitsInput(0);
+			setAssignments({});
+			setUnitStartDateInput('');
 		}
 	};
 	return (

@@ -63,6 +63,7 @@ export default function MobileNavbar() {
 
 				.mobileNav_menu_container {
 					position: relative;
+					width: 100%;
 				}
 
 				.mobileNav_menu_list {
@@ -92,7 +93,7 @@ export default function MobileNavbar() {
 				}
 
 				/* Media Queries */
-				@media only screen and (max-width: 600px) {
+				@media only screen and (max-width: 800px) {
 					/* Navbar Media Queries */
 					.navbar {
 						display: none;

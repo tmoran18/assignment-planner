@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { InputContext } from '../context/InputContext';
 import { AssignmentContext } from '../context/AssignmentContext';
-import { motion } from 'framer-motion';
+import Button from '../components/Button';
 
 const AddAssignmentModal = () => {
 	// Input Context
@@ -27,17 +27,29 @@ const AddAssignmentModal = () => {
 
 	// Add assignments to current state
 	const addAssignment = (e) => {
-		e.preventDefault();
-		setAssignments({
-			...assignments,
-			[`key_${assignmentModalKeyLocation}`]: {
-				name: assignmentNameInput,
-				type: assignmentTypeInput,
-				dueDate: assignmentDueDateInput,
-				length: assignmentLengthInput,
-			},
-		});
-		// Reset Inputs
+		if (!assignmentNameInput) {
+			alert('Assignment Name Cannot be Empty');
+			e.preventDefault();
+		} else if (!assignmentDueDateInput) {
+			alert('Assignment Due Date Cannot be Empty');
+			e.preventDefault();
+		} else {
+			e.preventDefault();
+			setAssignments({
+				...assignments,
+				[`key_${assignmentModalKeyLocation}`]: {
+					name: assignmentNameInput,
+					type: assignmentTypeInput,
+					dueDate: assignmentDueDateInput,
+					length: assignmentLengthInput,
+				},
+			});
+			// Reset Inputs
+			closeAssignmentModal();
+		}
+	};
+
+	const closeAssignmentModal = () => {
 		setAssignmentNameInput('');
 		setAssignmentTypeInput('');
 		setAssignmentDueDateInput('');
@@ -48,6 +60,12 @@ const AddAssignmentModal = () => {
 	return (
 		<div className={showAssignmentModal}>
 			<form className='flex-col'>
+				<img
+					onClick={closeAssignmentModal}
+					className='close_icon'
+					src='/close.svg'
+					alt='close X icon'
+				/>
 				<h2>Add New Assignment</h2>
 				<label>Name</label>
 				<input
@@ -72,18 +90,9 @@ const AddAssignmentModal = () => {
 					onChange={(e) => setAssignmentDueDateInput(e.target.value)}
 					type='date'
 				/>
-
-				<motion.button
-					style={{
-						alignSelf: 'center',
-						marginTop: '20px',
-						marginBottom: '-20px',
-					}}
-					whileHover={{ scale: 1.12 }}
-					whileTap={{ scale: 0.8 }}
-					onClick={addAssignment}>
-					Save
-				</motion.button>
+				<div id='btn_container'>
+					<Button onClick={addAssignment}>Save</Button>
+				</div>
 			</form>
 			<style jsx>{`
 				h2 {
@@ -105,12 +114,14 @@ const AddAssignmentModal = () => {
 					flex-direction: column;
 					max-width: 460px;
 					margin: 200px auto;
-					background: #eeeeee;
+					background: #f6f9fc;
+					border: 1px solid #ccc;
 					padding: 60px 80px;
 					border-radius: 4px;
 					text-align: center;
 					box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1),
 						0 10px 10px rgba(0, 0, 0, 0.1);
+					position: relative;
 				}
 				label {
 					font-size: 14px;
@@ -123,6 +134,26 @@ const AddAssignmentModal = () => {
 				}
 				input[type='date'] {
 					color: #ccc;
+				}
+				.close_icon {
+					position: absolute;
+					top: 10px;
+					right: 10px;
+					cursor: pointer;
+				}
+				#btn_container {
+					height: auto;
+					width: 100%;
+					background: none;
+					bottom: 20px;
+				}
+				@media only screen and (max-width: 800px) {
+					form {
+						width: 95%;
+						max-width: 380px;
+						margin: 50px auto;
+						padding: 60px 40px;
+					}
 				}
 			`}</style>
 		</div>

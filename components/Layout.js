@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Navbar from './Navbar';
 import MobileNavBar from './MobileNavBar';
-
+import Footer from '../components/Footer';
 export default function Layout({ children, pageTitle, ...props }) {
 	return (
 		<>
@@ -13,6 +13,7 @@ export default function Layout({ children, pageTitle, ...props }) {
 				<Navbar />
 				<MobileNavBar />
 				<div className='content'>{children}</div>
+				<Footer />
 			</section>
 
 			<style jsx global>{`

@@ -12,7 +12,7 @@ export default function Footer() {
 					footer {
 						position: sticky;
 						left: 0;
-						bottom: 0;
+						bottom: -80px;
 						right: 0;
 						background-color: #333;
 						color: white;

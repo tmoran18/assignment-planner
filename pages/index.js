@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
+import React, { useContext, useEffect, Fragment } from 'react';
+import { useRouter } from 'next/router';
 import { PlannerContext } from '../context/PlannerContext';
 import { InputContext } from '../context/InputContext';
 import { AssignmentContext } from '../context/AssignmentContext';
@@ -57,12 +57,21 @@ export default function Home() {
 	};
 	return (
 		<div>
-			<Head>
-				<title>Create Next App</title>
-				<link rel='icon' href='/favicon.ico' />
-			</Head>
-
 			<Layout>
+				<Head>
+					<meta charSet='utf-8' />
+					<title>
+						Assignment Planner | An App for planning your Assignments
+					</title>
+					<meta
+						name='description'
+						content='Assignment Planner allows students to visualise all their upcoming assignments & exams to help plan their study schedule'
+					/>
+					<meta
+						name='viewport'
+						content='initial-scale=1.0, width=device-width'
+					/>
+				</Head>
 				<section className='header text-center'>
 					<h2>Quickly build a Planner for your Assignments</h2>
 					<p className='text-center'>

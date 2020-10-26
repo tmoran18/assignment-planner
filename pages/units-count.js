@@ -43,8 +43,9 @@ export default function UnitNum() {
 	return (
 		<>
 			<Head>
-				<title>Create Next App</title>
+				<meta charSet='utf-8' />
 				<link rel='icon' href='/favicon.ico' />
+				<title>Create Next App</title>
 			</Head>
 
 			<Layout>

@@ -42,13 +42,21 @@ export default function UnitNum() {
 	};
 	return (
 		<>
-			<Head>
-				<meta charSet='utf-8' />
-				<link rel='icon' href='/favicon.ico' />
-				<title>Create Next App</title>
-			</Head>
-
 			<Layout>
+				<Head>
+					<meta charSet='utf-8' />
+					<title>
+						Assignment Planner | An App for planning your Assignments
+					</title>
+					<meta
+						name='description'
+						content='Assignment Planner allows students to visualise all their upcoming assignments & exams to help plan their study schedule'
+					/>
+					<meta
+						name='viewport'
+						content='initial-scale=1.0, width=device-width'
+					/>
+				</Head>
 				<motion.div
 					className='flex-col max-width-input'
 					style={{ height: '100vh' }}>

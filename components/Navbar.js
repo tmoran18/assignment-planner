@@ -11,7 +11,6 @@ export default function Navbar() {
 					<Link href='/'>
 						<li>Home</li>
 					</Link>
-
 					<li>About</li>
 					<li>Testimonials</li>
 					<li>Create Planner</li>
@@ -33,7 +32,9 @@ export default function Navbar() {
 					display: flex;
 					align-items: center;
 					justify-content: space-between;
-					padding: 10px;
+					padding: 20px;
+					max-width: 1300px;
+					margin: auto;
 				}
 
 				.menu_list {

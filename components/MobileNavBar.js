@@ -10,7 +10,14 @@ export default function MobileNavbar() {
 
 	return (
 		<nav className='mobileNav_container'>
-			<img src='./planner_logo.png' width='170' alt='logo' />
+			<Link href='/'>
+				<img
+					style={{ cursor: 'pointer' }}
+					src='./planner_logo.png'
+					width='170'
+					alt='logo'
+				/>
+			</Link>
 			<img
 				className='menu_icon'
 				src='./menu_icon.svg'

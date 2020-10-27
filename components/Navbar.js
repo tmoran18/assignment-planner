@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 export default function Navbar() {
-	const [mobileNavIsOpen, setMobileNavIsOpen] = useState(false);
 	return (
 		<nav className='navbar'>
-			<img src='./planner_logo.png' width='270' alt='a logo' />
+			<Link href='/'>
+				<img
+					style={{ cursor: 'pointer' }}
+					src='./planner_logo.png'
+					width='270'
+					alt='a logo'
+				/>
+			</Link>
+
 			<div>
 				<ul className='menu_list'>
 					<Link href='/'>
@@ -30,6 +37,12 @@ export default function Navbar() {
 					cursor: pointer;
 				}
 
+				ul li:hover {
+					color: dodgerblue;
+					transform: translateY(-2px);
+					transition: all ease 0.2s;
+					font-weight: bold;
+				}
 				/* Navbar */
 				.navbar {
 					display: flex;

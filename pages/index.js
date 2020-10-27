@@ -93,7 +93,7 @@ export default function Home() {
 						<img src='/planner_header.jpg' alt='' />
 					</div>
 				</section>
-				<section className='section_2'>
+				<section className='section_2' id='about'>
 					<FlexRow
 						title='Create your planner in minutes'
 						body='Assingment Planner makes it quick and easy to create your study panner using familar web forms. Add your unit details, unit start date and unit colours.'
@@ -109,7 +109,7 @@ export default function Home() {
 						direction='reverse'
 					/>
 				</section>
-				<section className='section_3'>
+				<section className='section_3' id='testimonials'>
 					<h2>Save your planner to view and use throughout the semester</h2>
 					<article>
 						<IconCard

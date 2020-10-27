@@ -25,9 +25,12 @@ export default function MobileNavbar() {
 					<Link href='/'>
 						<li>Home</li>
 					</Link>
-					<li>About</li>
-					<li>Testimonials</li>
-					<li>Create Planner</li>
+					<Link href='/#about'>
+						<li>About</li>
+					</Link>
+					<Link href='/#testimonials'>
+						<li>Testimonials</li>
+					</Link>
 				</ul>
 			</div>
 			<style jsx>{`
